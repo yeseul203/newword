@@ -1,0 +1,104 @@
+/* 전체 도움말 화면 컨테이너 */
+.help-container {
+  min-height: 100vh;
+  background-color: #6BC2DA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 16px;
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+/* 카드 스타일 (도움말 박스) */
+.help-card {
+  width: min(900px, 96vw);               /* PC: 900px, 모바일: 화면폭 거의 채움 */
+  background-color: white;
+  border-radius: 18px;
+  padding: clamp(20px, 3vw, 32px);       /* 화면 크기에 따라 유동 패딩 */
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* "도움말" 제목 텍스트 – 화면에 맞춰 유동 크기 */
+.help-title {
+  font-weight: 900;
+  font-size: clamp(26px, 4.5vw, 40px);
+  line-height: 1.2;
+  margin-bottom: clamp(12px, 2vw, 18px);
+  letter-spacing: -0.2px;
+}
+
+/* 퀴즈 이미지 – 카드 안에서만 100%로 */
+.help-image {
+  width: 100%;           /* ✅ 카드 내부 폭을 넘지 않도록 고정 */
+  max-width: 560px;      /* 데스크톱에서 너무 커지지 않게 상한 */
+  height: auto;
+  max-height: 58vh;      /* 세로는 화면의 절반+α 정도까지만 */
+  object-fit: contain;
+  border-radius: 18px;
+  display: block;
+  margin: clamp(6px, 2vw, 16px) auto clamp(12px, 2.5vw, 20px);
+  background: #f5f7fb;
+}
+
+
+/* "의미", "예시" 섹션 제목 */
+.section-title {
+  font-weight: 800;
+  font-size: clamp(18px, 3.2vw, 26px);
+  margin-top: clamp(16px, 2.6vw, 22px);
+}
+
+/* 의미 및 예시 내용 박스 */
+.section-box {
+  background-color: #D5E3F0;
+  padding: clamp(12px, 2.4vw, 18px);
+  margin-top: 8px;
+  border-radius: 20px;
+  font-size: clamp(15px, 2.8vw, 20px);
+  font-weight: 600;
+  color: #333;
+  line-height: 1.65;
+}
+
+/* "뒤로가기" 버튼 */
+.btn-back {
+  margin-top: clamp(18px, 3vw, 26px);
+  background-color: #70B7F1;
+  padding: clamp(10px, 2.6vw, 16px) clamp(18px, 3.2vw, 28px);
+  font-size: clamp(16px, 3.6vw, 22px);
+  font-weight: 900;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  color: black;
+  box-shadow:
+    inset 0 4px 2px rgba(255,255,255,0.6),
+    0 6px 14px rgba(0,0,0,0.18);
+  transition: transform 0.12s ease-in-out, box-shadow 0.12s ease-in-out;
+  min-height: 52px;                      /* 터치 타깃 확보 */
+  min-width: 180px;
+}
+
+.btn-back:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* ----------- 태블릿 이하(≤ 768px)에서 카드 조금 더 넓게 ----------- */
+@media (max-width: 768px) {
+  .help-card {
+    width: 94vw;
+  }
+}
+
+/* ----------- 작은 모바일(≤ 380px)에서 미세 조정 ----------- */
+@media (max-width: 380px) {
+  .help-card { border-radius: 16px; }
+  .help-image { border-radius: 16px; max-height: 60vh; }
+  .btn-back { min-height: 50px; }
+}

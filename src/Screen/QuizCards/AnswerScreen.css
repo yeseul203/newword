@@ -1,0 +1,132 @@
+/* 전체 화면 배경과 가운데 정렬 설정 */
+.answer-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #6BC2DA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* 정답 카드 스타일 */
+.answer-card {
+  width: 100%;
+  max-width: 1000px;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  padding: clamp(20px, 3.5vw, 36px) clamp(16px, 3vw, 28px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.answer-card::-webkit-scrollbar { display: none; }
+
+/* O / X 심볼 */
+.ox-symbol {
+  font-size: clamp(60px, 9vw, 96px);
+  font-weight: 900;
+  margin: 8px auto 0;
+}
+.ox-symbol.circle { color: #2F00FF; }
+.ox-symbol.cross  { color: #E60000; }
+
+/* 결과 텍스트(정답/오답입니다) */
+.result-text {
+  color: #000;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 900;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+/* 퀴즈 이미지 */
+.quiz-image {
+  width: clamp(120px, 28vw, 220px);
+  height: clamp(120px, 28vw, 220px);
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 8px auto 16px;
+}
+
+/* 라벨 / 정답 텍스트 */
+.answer-label {
+  font-size: clamp(18px, 3.6vw, 26px);
+  font-weight: 800;
+  margin-top: 10px;
+}
+.answer-text {
+  font-size: clamp(26px, 5.5vw, 42px);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+/* 섹션 타이틀/내용 */
+.section-title {
+  font-size: clamp(18px, 3.5vw, 26px);
+  font-weight: 800;
+  margin-top: 12px;
+}
+.section-box {
+  background-color: #D5E3F0;
+  border-radius: 20px;
+  padding: clamp(12px, 3.6vw, 18px);
+  margin: 8px auto;
+  font-size: clamp(16px, 3.7vw, 22px);
+  font-weight: 700;
+  color: #333;
+  line-height: 1.55;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 버튼 영역: 2열 반응형 그리드 느낌 */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 3.5vw, 18px);
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 6px;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+/* 공통 버튼 – 모바일에서 크게, 데스크탑에서 과하지 않게 */
+.btn {
+  flex: 1 1 45%;
+  min-width: clamp(140px, 45%, 280px);
+  height: clamp(56px, 7.2vh, 68px);
+  border: none;
+  border-radius: 16px;
+  font-size: clamp(18px, 4.2vw, 22px);
+  font-weight: 800;
+  box-shadow:
+    inset 0 4px 2px rgba(255,255,255,0.6),
+    0 6px 14px rgba(0,0,0,0.18);
+  cursor: pointer;
+  color: black;
+  transition: transform 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
+}
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* 버튼 컬러 */
+.btn.home   { background-color: #F4B938; }
+.btn.next   { background-color: #38ACF4; }
+.btn.explain{ background-color: #82C75E; }
+
+/* 데스크탑에서 너무 넓어지지 않도록 */
+@media (min-width: 1024px) {
+  .btn { flex: 0 0 220px; }
+}
